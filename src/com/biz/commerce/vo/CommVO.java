@@ -1,18 +1,28 @@
 package com.biz.commerce.vo;
 
+/*
+ *  매입매출데이터.txt파일로부터 데이터를 읽어서 List를 만들때 사용할 데이터 클래스(VO)선언
+ */
 public class CommVO {
 	
-	private String strDate; // 거래일자
-	private String strpCode; //상품코드
-	private String strInout;//거래구분
-	private String strName; //상품명
+	/*
+	 * 거래일자:상품코드:거래구분:단가:수량 형식의 데이터를 읽어서 
+	 * 각 member변수에 저장
+	 * 
+	 * 각 member변수는 정보은닉과 캡슐화를 하기 위해 private으로 선언한다.
+	 */
 	
+	private String strDate; // 거래일자 io_date
+	private String strpCode; //상품코드 io_ccode
+	private String strInout;//거래구분 io_inout
+		 
+	private int intPrice; //단가 io_price
+	private int intSu; //수량 io_quan
 	
-	private int intPrice; //단가
-	private int intSu; //수량
-	private int intInPrice; // 매입금액
-	private int intOutPrice; // 매출금액
-	
+	/*
+	 * private으로 선언된 변수는 외부에서 직접 접근할 수 없으므로 getter와 setter 메서드를 생성해서 
+	 * 변수에 값을 저장하고, 읽을 수 있도록 통로를 만든다. 
+	 */
 	public String getStrDate() {
 		return strDate;
 	}
@@ -31,12 +41,6 @@ public class CommVO {
 	public void setStrInout(String strInout) {
 		this.strInout = strInout;
 	}
-	public String getStrName() {
-		return strName;
-	}
-	public void setStrName(String strName) {
-		this.strName = strName;
-	}
 	public int getIntPrice() {
 		return intPrice;
 	}
@@ -49,24 +53,17 @@ public class CommVO {
 	public void setIntSu(int intSu) {
 		this.intSu = intSu;
 	}
-	public int getIntInPrice() {
-		return intInPrice;
-	}
-	public void setIntInPrice(int intInPrice) {
-		this.intInPrice = intInPrice;
-	}
-	public int getIntOutPrice() {
-		return intOutPrice;
-	}
-	public void setIntOutPrice(int intOutPrice) {
-		this.intOutPrice = intOutPrice;
-	}
+	
+	/*
+	 * vo에 데이터를 저장한 후 데이터를 확인하는 디버깅용 메서드를 재정의한다.
+	 */
+	
 	@Override
 	public String toString() {
-		return "CommerceVO [strDate=" + strDate + ", strpCode=" + strpCode + ", strInout=" + strInout + ", strName="
-				+ strName + ", intPrice=" + intPrice + ", intSu=" + intSu + ", intInPrice=" + intInPrice
-				+ ", intOutPrice=" + intOutPrice + "]";
+		return "CommVO [strDate=" + strDate + ", strpCode=" + strpCode + ", strInout=" + strInout + ", intPrice="
+				+ intPrice + ", intSu=" + intSu + "]";
 	}
 	
-
-}
+	
+	
+	}
